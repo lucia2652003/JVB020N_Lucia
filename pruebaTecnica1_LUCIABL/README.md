@@ -9,7 +9,7 @@ para realizar diferentes funciones.
   2. **Workbench**: Enciendelo y crear la conexión
   3. Coge el script **empleados.sql**, copia sus sintaxis y lo pegas en Workbench. 
     Una vez hecho lo ejecutas pinchando en el icono del primer rayo que veas. Refresca
-    BD '**SCHEMAS**' y lo muestra crear otro script SQL y lo compruebas 'SELECT * FROM empleados'.
+    BD '**SCHEMAS**'. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
   4. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien 
         * pon.xml: Debe terner las librerías externas de Hibernate
              
