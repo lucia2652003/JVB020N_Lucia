@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS empleado (
     name VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
     job VARCHAR(255) NOT NULL,
-    wage DOUBLE,
+    wage INT,
     start_date DATETIME(6) 
 );
 
