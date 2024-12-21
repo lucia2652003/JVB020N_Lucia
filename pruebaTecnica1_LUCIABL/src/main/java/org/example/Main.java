@@ -1,11 +1,73 @@
 package org.example;
 
 import org.example.controllers.EmpleadoController;
+import org.example.entities.Empleado;
+
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         EmpleadoController controller = new EmpleadoController();
 
+        Scanner t = new Scanner(System.in);//Interactuar en el programa
+
+        int eleccion = 0;
+        /*System.out.println("Bienvenido. Por favor introduzca el móvil");
+        String nombre = t.nextLine();
+        System.out.println("Hola "+nombre+", vamos a realizar la gestión de empleados ");*/
+
+        while(!(eleccion == -1)){ //Mientras que no se cumpla la condición
+            System.out.println("Elija una opción: " +
+                    "\n 1. Agregar empleado" +
+                    "\n 2. Listar empleados "+
+                    "\n 3. Actualizar empleado"+
+                    "\n 4. Eliminar un empleado "+
+                    "\n 5. Buscar empleados por cargo " +
+                    "\n ¿Quieres continuar, pulsa cualquier número? Pulse -1 para finalizar\"");
+            eleccion = t.nextInt();
+            switch (eleccion){
+                case 1:
+                    //Agregar un empleado
+
+                    //Validación de datos
+                    break;
+                case 2:
+                    List<Empleado> listaEmpleado = controller.listarEmpleados();
+                    System.out.println("Lista de los empleados: ");
+                    for(Empleado empleado : listaEmpleado){
+                        System.out.println(empleado);
+                    }
+                    System.out.println();
+                    break;
+                case 3:
+                    //In
+                case 4:
+
+                    break;
+                case 5:
+                    //Buscar a los empleados por cargo
+                    t.nextLine();//Para evitar el salto
+                    System.out.println("Buscar a los empleador por trabajo. Introduce un cargo");
+                    String cargo = t.nextLine();
+                    List<Empleado> listaCargo = controller.buscarCargo(cargo);
+                    if(listaCargo.size() == 0){
+                        System.out.println("No hay un listado de ese cargo");
+                    }else{
+                        System.out.println("Empleados del cargo contable: ");
+                        for(Empleado empleado : listaCargo){
+                            System.out.println(empleado.toStringJob());
+                        }
+                    }
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Debes introducir valores (1 a 5). Introduzca de nuevo");
+                    break;
+
+            }// fin switch
+
+        }// fin do...while
 
     }
 

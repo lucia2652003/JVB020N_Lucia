@@ -96,13 +96,13 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" +
-                "id=" + id +
-                ", nombre='" + name + '\'' +
-                ", apellido='" + surname + '\'' +
-                ", cargo='" + job + '\'' +
-                ", salario=" + miWage +
-                ", fechaIncio=" + start_date +
-                '}';
+        return "Empleado: ID:"+ id +" Nombre Completo: "+ name +" "+surname+
+                ", Ocupación: " + job  +
+                ", Salario: " + miWage +" €"+", Fecha inicio: " + start_date ;
+    }
+
+    public String toStringJob() {//Para ver los empleados según trabajo
+        return "Empleado: ID:"+ id +" Nombre Completo: "+ name +" "+surname+
+                ", Salario: " + miWage +" €"+", Fecha inicio: " + start_date ;
     }
 }

@@ -18,6 +18,7 @@ public class EmpleadoController {
     }
 
     public List<Empleado> buscarCargo(String job) {
+        System.out.println(job);
        return empJPA.findJob(job);
     }
 

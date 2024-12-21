@@ -1,6 +1,3 @@
---  Creación de la DB
-CREATE DATABASE IF NOT EXISTS empleados;
-
 --  Usando la DB
 USE empleados;
 
@@ -11,7 +8,7 @@ CREATE TABLE IF NOT EXISTS empleado (
     surname VARCHAR(255) NOT NULL,
     job VARCHAR(255) NOT NULL,
     wage INT,
-    start_date DATETIME(6) 
+    start_date DATETIME(6)
 );
 
 --  Insertando datos en la Tabla Empleado
@@ -24,6 +21,6 @@ VALUES
 ('María', "Castro", "Juez", 4800, "2024-11-23"),
 ('Iago', "Lopéz", "Contable", 7000, "1645-05-23"),
 ('Lola', "Grandes", "Contable", 1500, "2004-10-10"),
-('Elena', "María", "Programadora", 5520, "2001-03-14"),
+('Marcos', "Moutos", "Programador", 5520, "2001-03-14"),
 ('Fiona', "Lama", "Contable", 1500, "2002-09-27"),
-('Luis', "Maneiroa", "Informático", 1250, "2000-04-22");
+('Luis', "Maneiro", "Informático", 1250, "2000-04-22");
