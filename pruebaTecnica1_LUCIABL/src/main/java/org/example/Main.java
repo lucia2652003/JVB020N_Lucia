@@ -76,7 +76,7 @@ public class Main {
 
             }// fin switch
 
-        }// fin do...while
+        }// fin while
 
     }
 
