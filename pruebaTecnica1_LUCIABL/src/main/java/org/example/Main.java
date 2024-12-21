@@ -41,20 +41,29 @@ public class Main {
                     System.out.println();
                     break;
                 case 3:
-                    //In
-                case 4:
 
+                case 4:
+                    //Eliminación de empleado
+                    System.out.println("Introduce un id de un empleado para eliminar");
+                    int id = t.nextInt();
+                    Empleado buscar = controller.bucarEmpleado(id);
+                    if(buscar == null){ //No encontró el empleado en DB
+                        System.out.println("Ese empleado no existe en BD");
+                    }else{
+                        controller.eliminarEmpleado(buscar.getId());
+                        System.out.println("El empleado "+buscar.getId() +": "+buscar.getName()+" "+buscar.getSurname()+" ha sido eliminado");
+                    }
                     break;
                 case 5:
                     //Buscar a los empleados por cargo
                     t.nextLine();//Para evitar el salto
-                    System.out.println("Buscar a los empleador por trabajo. Introduce un cargo");
+                    System.out.println("Introduce un cargo para buscar dichos empleados");
                     String cargo = t.nextLine();
                     List<Empleado> listaCargo = controller.buscarCargo(cargo);
-                    if(listaCargo.size() == 0){
+                    if(listaCargo.isEmpty()){
                         System.out.println("No hay un listado de ese cargo");
                     }else{
-                        System.out.println("Empleados del cargo contable: ");
+                        System.out.println("Empleados del cargo "+cargo+": ");
                         for(Empleado empleado : listaCargo){
                             System.out.println(empleado.toStringJob());
                         }
