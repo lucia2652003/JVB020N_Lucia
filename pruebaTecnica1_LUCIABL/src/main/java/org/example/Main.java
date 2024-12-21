@@ -3,6 +3,8 @@ package org.example;
 import org.example.controllers.EmpleadoController;
 import org.example.entities.Empleado;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,7 +17,7 @@ public class Main {
         int eleccion = 0;
         /*System.out.println("Bienvenido. Por favor introduzca el móvil");
         String nombre = t.nextLine();
-        System.out.println("Hola "+nombre+", vamos a realizar la gestión de empleados ");*/
+        System.out.println("Hola "+nombre+", vamos a realizar la gestión de empleados");*/
 
         while(!(eleccion == -1)){ //Mientras que no se cumpla la condición
             System.out.println("Elija una opción: " +
@@ -28,9 +30,12 @@ public class Main {
             eleccion = t.nextInt();
             switch (eleccion){
                 case 1:
-                    //Agregar un empleado
-
-                    //Validación de datos
+                    t.nextLine();//Evitar el salto
+                    System.out.println("Agregar un empleado");
+                    //Validación de datos y creación
+                    Empleado nuevo =controller.validacionEmpleado(t);
+                    controller.crearEmpleado(nuevo);
+                    System.out.println("Empleado ingresado");
                     break;
                 case 2:
                     List<Empleado> listaEmpleado = controller.listarEmpleados();
@@ -82,7 +87,6 @@ public class Main {
             }// fin switch
 
         }// fin do...while
-
     }
 
 

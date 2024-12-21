@@ -2,6 +2,7 @@ package org.example.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity(name = "empleado")
@@ -26,19 +27,19 @@ public class Empleado {
     private Integer miWage;//Salario
 
     @Column
-    private LocalDateTime start_date; //Fecha que empezó a trabajar
+    private LocalDate start_date; //Fecha que empezó a trabajar
 
     //Constructores
     public Empleado() {
     }
 
-    public Empleado(Integer id, String nombre, String surname, String job, Integer miWage, LocalDateTime fechaIncio) {
+    public Empleado(Integer id, String name, String surname, String job, Integer miWage, LocalDate start_date) {
         this.id = id;
-        this.name = nombre;
+        this.name = name;
         this.surname = surname;
         this.job = job;
         this.miWage = miWage;
-        this.start_date = fechaIncio;
+        this.start_date = start_date;
     }
 
     //Getters y Setters
@@ -83,11 +84,11 @@ public class Empleado {
         this.miWage = miWage;
     }
 
-    public LocalDateTime getStart_date() {
+    public LocalDate getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(LocalDateTime start_date) {
+    public void setStart_date(LocalDate start_date) {
         this.start_date = start_date;
     }
 

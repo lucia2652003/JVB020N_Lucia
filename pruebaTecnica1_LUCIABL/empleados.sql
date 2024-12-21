@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS empleado (
     surname VARCHAR(255) NOT NULL,
     job VARCHAR(255) NOT NULL,
     wage INT,
-    start_date DATETIME(6)
+    start_date DATE
 );
 
 --  Insertando datos en la Tabla Empleado
