@@ -50,7 +50,7 @@ public class EmpleadoJPA {
                 em.remove(encontrado);
                 System.out.println("Empleado con el id "+encontrado.getId()+" ha si elimado");
             }else{
-                System.out.println("No existe ese emepleado");
+                System.out.println("No existe ese empleado");
             }
             em.getTransaction().commit();
         }finally{

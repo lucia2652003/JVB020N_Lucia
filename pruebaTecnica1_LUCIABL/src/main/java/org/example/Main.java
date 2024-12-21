@@ -24,7 +24,7 @@ public class Main {
                     "\n 3. Actualizar empleado"+
                     "\n 4. Eliminar un empleado "+
                     "\n 5. Buscar empleados por cargo " +
-                    "\n ¿Quieres continuar, pulsa cualquier número? Pulse -1 para finalizar\"");
+                    "\n ¿Quieres continuar? Pulse -1 para finalizar");
             eleccion = t.nextInt();
             switch (eleccion){
                 case 1:
@@ -41,17 +41,22 @@ public class Main {
                     System.out.println();
                     break;
                 case 3:
-
-                case 4:
-                    //Eliminación de empleado
-                    System.out.println("Introduce un id de un empleado para eliminar");
-                    int id = t.nextInt();
-                    Empleado buscar = controller.bucarEmpleado(id);
+                    //Actualización de un empleado
+                    Empleado buscar =controller.gestionEmpleado(t,"actualizar");
                     if(buscar == null){ //No encontró el empleado en DB
                         System.out.println("Ese empleado no existe en BD");
                     }else{
-                        controller.eliminarEmpleado(buscar.getId());
-                        System.out.println("El empleado "+buscar.getId() +": "+buscar.getName()+" "+buscar.getSurname()+" ha sido eliminado");
+                        System.out.println("El empleado "+buscar.getId() +" ha sido actualizado");
+                    }
+                    break;
+                case 4:
+                    //Eliminación de empleado
+                    Empleado emp = controller.gestionEmpleado(t,"eliminar");
+                    if(emp == null){ //No encontró el empleado en DB
+                        System.out.println("Ese empleado no existe en BD");
+                    }else{
+                        controller.eliminarEmpleado(emp.getId());
+                        System.out.println("El empleado "+emp.getId() +" ha sido eliminado");
                     }
                     break;
                 case 5:
@@ -76,7 +81,7 @@ public class Main {
 
             }// fin switch
 
-        }// fin while
+        }// fin do...while
 
     }
 
