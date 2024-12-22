@@ -83,24 +83,24 @@ public class EmpleadoController {
 
     public LocalDate validationFechaInicio(Scanner t, String fechaDeIncio) {
         // Debemos comprobar el año YYYY, el mes MM y el día DD por separado
-        // * El mayor a 0 y menor que el año actual
+        // * El año debe ser mayor a 0 y menor que el año actual
         // * El mes 1 - 12
         // * El día 1 - 31
         System.out.println("Introduce la "+fechaDeIncio+" siguiendo los parámetros: " +
-                "\n Introduce el año YYYY");
+                "\n Introduce el año YYYY menor o igual a "+LocalDate.now().getYear()+", nunca menor a 0");
         int ano = t.nextInt();
-        System.out.println("Introduce el mes MM");
+        System.out.println("Introduce el mes MM o M 01-12");
         int mes = t.nextInt();
-        System.out.println("Introduce el dia DD");
+        System.out.println("Introduce el dia DD o D 01-31");
         int dia = t.nextInt();
 
         while((ano <= 0 || ano > LocalDate.now().getYear()) || (mes < 1 || mes > 12) || (dia < 1 || dia > 31) ){
             System.out.println("Los parámetros no son los correctos. Vuleve a introducirlos " +
-                    "\n Introduce el año YYYY");
+                    "\n Introduce el año YYYY menor o igual a "+LocalDate.now().getYear()+", nunca menor a 0");
             ano = t.nextInt();
-            System.out.println("Introduce el mes MM");
+            System.out.println("Introduce el mes MM o M 01-12");
             mes = t.nextInt();
-            System.out.println("Introduce el dia DD");
+            System.out.println("Introduce el dia DD o D 01-31");
             dia = t.nextInt();
         }// fin while
 
