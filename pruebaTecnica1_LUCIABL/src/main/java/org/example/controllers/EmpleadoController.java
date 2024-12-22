@@ -109,7 +109,7 @@ public class EmpleadoController {
             dia = t.nextInt();
         } // fin while
 
-        System.out.println("Fecha correcto");
+        System.out.println("Fecha válida");
         //Pasarlo a fecha
         return LocalDate.of(ano ,mes, dia);
     }
@@ -125,7 +125,7 @@ public class EmpleadoController {
             valor = t.nextInt();
         }// fin while
 
-        System.out.println("Salario correcto");
+        System.out.println("Salario válido");
         return valor;
     }
 
