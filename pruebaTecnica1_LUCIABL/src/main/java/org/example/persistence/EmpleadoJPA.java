@@ -15,6 +15,12 @@ public class EmpleadoJPA {
             em.getTransaction().begin();//Iniciar la transacción
             em.persist(emp);//Insertar al empleado en DB
             em.getTransaction().commit();
+            //Comprobar si esta agregado
+            if(find(emp.getId()) == null){//Si existe el empleado
+                System.out.println("El empleado no se ha insertado bien");
+            }else{
+                System.out.println("Empleado ingresado");
+            }
         }finally{
             em.close();
         }// fin finally

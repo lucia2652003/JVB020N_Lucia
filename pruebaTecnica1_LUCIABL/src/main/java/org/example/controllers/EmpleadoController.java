@@ -1,12 +1,9 @@
 package org.example.controllers;
 
-import jdk.swing.interop.SwingInterOpUtils;
 import org.example.entities.Empleado;
 import org.example.persistence.EmpleadoJPA;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 import java.util.List;
 import java.util.Scanner;
 
@@ -41,34 +38,8 @@ public class EmpleadoController {
         return bucarEmpleado(id);
     }
 
-    public Empleado validacionEmpleado(Scanner t){
-        //Bucle se detiene cuando los campos están llenos
-        String nombre = "", apellido = "", trabaj = "", fecha_in = ""; int salario = 0;
-        while (nombre.isEmpty() || apellido.isEmpty() || fecha_in.isEmpty() || trabaj.isEmpty() ||  salario <= 0) {
-
-            System.out.println("Introduce el nombre");
-            nombre = t.nextLine();
-            System.out.println("Introduce el apellido");
-            apellido = t.nextLine();
-            System.out.println("Introduce el trabajo");
-            trabaj = t.nextLine();
-            System.out.println("Introduce la fecha de inicio (YYYY-MM-DD)");
-            fecha_in = t.nextLine();//Considerando una fecha
-            System.out.println("Introduce el salario");
-            salario = Integer.parseInt(t.nextLine());
-
-            if(nombre.isEmpty() || apellido.isEmpty() || fecha_in.isEmpty() || trabaj.isEmpty() || salario <= 0){
-                System.out.println("Los campos son obligatorios");
-            }else{
-                System.out.println("Datos válidos");
-            }
-        }
-        return new Empleado(null, nombre, apellido, trabaj, salario,LocalDate.parse(fecha_in));
-
-    }
-
     //Elegir una de las opciones para actualizar al empleado
-    public void actualizarEmpleado(Scanner t,Empleado buscar) {
+    public void actualizarEmpleado(Scanner t, Empleado buscar) {
 
         int opcion;
         do{
@@ -81,23 +52,23 @@ public class EmpleadoController {
             opcion = t.nextInt();
             switch(opcion){
                case 1:
-                   String nombre = validacionTexto(t,"nombre");
+                   String nombre = validationTexto(t,"nombre");
                    buscar.setName(nombre); //Parámetro modificado
                 break;
               case 2:
-                  String apellido = validacionTexto(t,"apellido");
+                  String apellido = validationTexto(t,"apellido");
                   buscar.setSurname(apellido);
                 break;
               case 3:
-                  String cargo = validacionTexto(t,"cargo");
+                  String cargo = validationTexto(t,"cargo");
                   buscar.setJob(cargo);
                 break;
               case 4:
-                  int salario = validacionInt(t, "salario");
+                  int salario = validationSalario(t, "salario");
                   buscar.setMiWage(salario);
                   break;
               case 5:
-                  LocalDate fecha = validacionLocalDate(t,"fecha de incio");
+                  LocalDate fecha = validationFechaInicio(t,"fecha de incio");
                   buscar.setStart_date(fecha);
                   break;
               default:
@@ -110,7 +81,7 @@ public class EmpleadoController {
         empJPA.update(buscar);//Actualizar empleado
     }
 
-    private LocalDate validacionLocalDate(Scanner t, String fechaDeIncio) {
+    public LocalDate validationFechaInicio(Scanner t, String fechaDeIncio) {
         // Debemos comprobar el año YYYY, el mes MM y el día DD por separado
         // * El mayor a 0 y menor que el año actual
         // * El mes 1 - 12
@@ -134,11 +105,11 @@ public class EmpleadoController {
         }// fin while
 
         System.out.println("Fecha correcto");
-        LocalDate fecha = LocalDate.of(ano,mes,dia);//Pasarlo a fecha
-        return fecha;
+        //Pasarlo a fecha
+        return LocalDate.of(ano ,mes, dia);
     }
 
-    private Integer validacionInt(Scanner t, String opcion) {
+    public Integer validationSalario(Scanner t, String opcion) {
         //Mientras se un dato inválido
         // * Introducimos valor negativos o 0
         System.out.println("Introduce el "+opcion);
@@ -149,12 +120,11 @@ public class EmpleadoController {
             valor = t.nextInt();
         }// fin while
 
-        System.out.println("Fecha correcto");
+        System.out.println("Salario correcto");
         return valor;
     }
 
-    private String validacionTexto(Scanner t, String opcion) {
-        t.nextLine();
+    public String validationTexto(Scanner t, String opcion) {
         //Mientras se un dato inválido
         // * Si es un campo vacío
         System.out.println("Introduce el "+opcion);
