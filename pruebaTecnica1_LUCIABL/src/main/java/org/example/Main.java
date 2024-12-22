@@ -83,7 +83,6 @@ public class Main {
                 default:
                     System.out.println("Debes introducir valores (1 a 5). Introduzca de nuevo");
                     break;
-
             }// fin switch
 
         }// fin do...while

@@ -92,19 +92,35 @@ public class EmpleadoController {
                   buscar.setJob(cargo);
                   System.out.println(buscar);
                 break;
-               case 4:
-                System.out.println("Introduce el salario");
-                break;
-               case 5:
-                System.out.println("Introduce la fecha de inicio");
-                break;
-               default:
+              case 4:
+                  int salario = validacionInt(t, "salario");
+                  buscar.setMiWage(salario);
+                  System.out.println(buscar);
+                  break;
+              case 5:
+                  System.out.println("Introduce la fecha de inicio");
+                  
+                  break;
+              default:
                  System.out.println("Lo siento pero no existe ese valor");
-                break;
+                 break;
             }// fin switch
 
         }while(opcion < 1 || opcion > 5);
         empJPA.update(buscar);
+    }
+
+    private Integer validacionInt(Scanner t, String opcion) {
+        //Mientras se un dato inválido
+        // * Introducimos valor negativos o 0
+        System.out.println("Introduce el "+opcion);
+        int valor = t.nextInt(); //No va a salir del escaneo hasta teclear un número entero
+        while(valor <= 0){
+            System.out.println("No puedes introducir un salario negativo o 0");
+            valor = t.nextInt();
+        }
+        System.out.println("Salario correcto");
+        return valor;
     }
 
     private String validacionTexto(Scanner t, String opcion) {
@@ -118,7 +134,9 @@ public class EmpleadoController {
             valor = t.nextLine();
         }
         //Darle el formato, la primera letra en Mayúscula y el resto minúscula
-        valor = valor.substring(0,1).toUpperCase()+valor.substring(1).toLowerCase();
+        valor = valor.substring(0,1).toUpperCase().trim()+valor.substring(1).toLowerCase().trim();
+        opcion = opcion.substring(0,1).toUpperCase().trim()+opcion.substring(1).toLowerCase().trim();
+        System.out.println(opcion+" válido");
         return valor;
     }
 }
