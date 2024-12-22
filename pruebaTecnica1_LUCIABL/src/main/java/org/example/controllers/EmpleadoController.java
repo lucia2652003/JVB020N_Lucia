@@ -27,7 +27,6 @@ public class EmpleadoController {
         empJPA.delete(idBuscar);
     }
 
-
     public Empleado bucarEmpleado(int id) {
         return empJPA.find(id);
     }
@@ -65,4 +64,61 @@ public class EmpleadoController {
 
     }
 
+    //Elegir una de las opciones para actualizar al empleado
+    public void actualizarEmpleado(Scanner t,Empleado buscar) {
+
+        int opcion;
+        do{
+            System.out.println("Que quieres cambiar: " +
+                "\n 1. Nombre" +
+                "\n 2. Apellido "+
+                "\n 3. Trabajo"+
+                "\n 4. Salario "+
+                "\n 5. Fecha de inicio " );
+            opcion = t.nextInt();
+            switch(opcion){
+               case 1:
+                   String nombre = validacionTexto(t,"nombre");
+                   buscar.setName(nombre);
+                   System.out.println(buscar);
+                break;
+              case 2:
+                  String apellido = validacionTexto(t,"apellido");
+                  buscar.setSurname(apellido);
+                  System.out.println(buscar);
+                break;
+              case 3:
+                  String cargo = validacionTexto(t,"cargo");
+                  buscar.setJob(cargo);
+                  System.out.println(buscar);
+                break;
+               case 4:
+                System.out.println("Introduce el salario");
+                break;
+               case 5:
+                System.out.println("Introduce la fecha de inicio");
+                break;
+               default:
+                 System.out.println("Lo siento pero no existe ese valor");
+                break;
+            }// fin switch
+
+        }while(opcion < 1 || opcion > 5);
+        empJPA.update(buscar);
+    }
+
+    private String validacionTexto(Scanner t, String opcion) {
+        t.nextLine();
+        //Mientras se un dato inválido
+        // * Si es un campo vacío
+        System.out.println("Introduce el "+opcion);
+        String valor = t.nextLine();
+        while(valor.isEmpty()){
+            System.out.println("Vuelve a introducirlo");
+            valor = t.nextLine();
+        }
+        //Darle el formato, la primera letra en Mayúscula y el resto minúscula
+        valor = valor.substring(0,1).toUpperCase()+valor.substring(1).toLowerCase();
+        return valor;
+    }
 }

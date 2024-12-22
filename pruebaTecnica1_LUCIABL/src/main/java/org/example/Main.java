@@ -3,8 +3,6 @@ package org.example;
 import org.example.controllers.EmpleadoController;
 import org.example.entities.Empleado;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,6 +16,7 @@ public class Main {
         /*System.out.println("Bienvenido. Por favor introduzca el móvil");
         String nombre = t.nextLine();
         System.out.println("Hola "+nombre+", vamos a realizar la gestión de empleados");*/
+
 
         while(!(eleccion == -1)){ //Mientras que no se cumpla la condición
             System.out.println("Elija una opción: " +
@@ -51,7 +50,8 @@ public class Main {
                     if(buscar == null){ //No encontró el empleado en DB
                         System.out.println("Ese empleado no existe en BD");
                     }else{
-                        System.out.println("El empleado "+buscar.getId() +" ha sido actualizado");
+                        controller.actualizarEmpleado(t,buscar);
+                        //System.out.println("El empleado "+buscar.getId() +" ha sido actualizado");
                     }
                     break;
                 case 4:
@@ -87,7 +87,6 @@ public class Main {
             }// fin switch
 
         }// fin do...while
+
     }
-
-
 }
