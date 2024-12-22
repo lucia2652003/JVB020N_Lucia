@@ -1,7 +1,8 @@
 ## **Prueba Técnica Gestión de Empleados** 
 
-En esta práctica vamos a realizar la gestión una empresa en qle que necesitan empleados
-para realizar diferentes funciones.
+En esta práctica vamos a realizar la gestión de una empresa en el que necesitan empleados
+para eso, debemos interacturar con una DB que tenemos presente para realizar las operaciones 
+CRUD(crear, leer, actualizar y eliminar).
 
 ## Antes de comenzar:
 
@@ -88,7 +89,6 @@ para realizar diferentes funciones.
    * entities: Se encuentran la plantilla de Empleado donde tiene los datos de la tabla 
      con sus especificaciones. Métodos para cambiar y mostrar variables.
    * persistence: Configuración de la DB "ConfigJPA"
-        y el mapeo para realizar las operaciones CRUD "EmpleadoJPA"
-   * 
+        y el mapeo para realizar las operaciones CRUD "EmpleadoJPA".
 
 
