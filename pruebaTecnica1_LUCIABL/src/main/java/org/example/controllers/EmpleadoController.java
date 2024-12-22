@@ -36,7 +36,7 @@ public class EmpleadoController {
         System.out.println("Inserta el id del empleado que quieres buscar para "+opcion);
         int idBuscar = t.nextInt();
         if(opcion.equals("actualizar")){ //Actualiza el usuario
-            Empleado encontrado = empJPA.find(idBuscar);
+            Empleado encontrado = bucarEmpleado(idBuscar);
             actualizarEmpleado(t,encontrado);
         }else{// Elimina el usuario
             eliminarEmpleado(idBuscar);
@@ -92,22 +92,22 @@ public class EmpleadoController {
         // * El mes 1 - 12
         // * El día 1 - 31
         System.out.println("Introduce la "+fechaDeIncio+" siguiendo los parámetros: " +
-                "\n Introduce el año YYYY menor o igual a "+LocalDate.now().getYear()+", nunca menor a 0");
+                "\n Introduce el año YYYY que sea menor "+LocalDate.now().getYear());
         int ano = t.nextInt();
         System.out.println("Introduce el mes MM o M 01-12");
         int mes = t.nextInt();
         System.out.println("Introduce el dia DD o D 01-31");
         int dia = t.nextInt();
 
-        while((ano <= 0 || ano > LocalDate.now().getYear()) || (mes < 1 || mes > 12) || (dia < 1 || dia > 31) ){
-            System.out.println("Los parámetros no son los correctos. Vuleve a introducirlos " +
-                    "\n Introduce el año YYYY menor o igual a "+LocalDate.now().getYear()+", nunca menor a 0");
+        while ((ano <= 0 || ano > LocalDate.now().getYear()) || (mes < 1 || mes > 12) || (dia < 1 || dia > 31)) {
+            System.out.println("Los parámetros no son los correctos. Vuelve a introducirlos " +
+                        "\n Año -> YYYY 0001 hasta " + LocalDate.now().getYear());
             ano = t.nextInt();
-            System.out.println("Introduce el mes MM o M 01-12");
+            System.out.println("Mes -> MM o M 01-12");
             mes = t.nextInt();
             System.out.println("Introduce el dia DD o D 01-31");
             dia = t.nextInt();
-        }// fin while
+        } // fin while
 
         System.out.println("Fecha correcto");
         //Pasarlo a fecha
