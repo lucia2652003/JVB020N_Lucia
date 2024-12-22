@@ -1,9 +1,12 @@
 package org.example.controllers;
 
+import jdk.swing.interop.SwingInterOpUtils;
 import org.example.entities.Empleado;
 import org.example.persistence.EmpleadoJPA;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.List;
 import java.util.Scanner;
 
@@ -79,27 +82,23 @@ public class EmpleadoController {
             switch(opcion){
                case 1:
                    String nombre = validacionTexto(t,"nombre");
-                   buscar.setName(nombre);
-                   System.out.println(buscar);
+                   buscar.setName(nombre); //Parámetro modificado
                 break;
               case 2:
                   String apellido = validacionTexto(t,"apellido");
                   buscar.setSurname(apellido);
-                  System.out.println(buscar);
                 break;
               case 3:
                   String cargo = validacionTexto(t,"cargo");
                   buscar.setJob(cargo);
-                  System.out.println(buscar);
                 break;
               case 4:
                   int salario = validacionInt(t, "salario");
                   buscar.setMiWage(salario);
-                  System.out.println(buscar);
                   break;
               case 5:
-                  System.out.println("Introduce la fecha de inicio");
-                  
+                  LocalDate fecha = validacionLocalDate(t,"fecha de incio");
+                  buscar.setStart_date(fecha);
                   break;
               default:
                  System.out.println("Lo siento pero no existe ese valor");
@@ -107,7 +106,36 @@ public class EmpleadoController {
             }// fin switch
 
         }while(opcion < 1 || opcion > 5);
-        empJPA.update(buscar);
+        System.out.println(buscar);
+        empJPA.update(buscar);//Actualizar empleado
+    }
+
+    private LocalDate validacionLocalDate(Scanner t, String fechaDeIncio) {
+        // Debemos comprobar el año YYYY, el mes MM y el día DD por separado
+        // * El mayor a 0 y menor que el año actual
+        // * El mes 1 - 12
+        // * El día 1 - 31
+        System.out.println("Introduce la "+fechaDeIncio+" siguiendo los parámetros: " +
+                "\n Introduce el año YYYY");
+        int ano = t.nextInt();
+        System.out.println("Introduce el mes MM");
+        int mes = t.nextInt();
+        System.out.println("Introduce el dia DD");
+        int dia = t.nextInt();
+
+        while((ano <= 0 || ano > LocalDate.now().getYear()) || (mes < 1 || mes > 12) || (dia < 1 || dia > 31) ){
+            System.out.println("Los parámetros no son los correctos. Vuleve a introducirlos " +
+                    "\n Introduce el año YYYY");
+            ano = t.nextInt();
+            System.out.println("Introduce el mes MM");
+            mes = t.nextInt();
+            System.out.println("Introduce el dia DD");
+            dia = t.nextInt();
+        }// fin while
+
+        System.out.println("Fecha correcto");
+        LocalDate fecha = LocalDate.of(ano,mes,dia);//Pasarlo a fecha
+        return fecha;
     }
 
     private Integer validacionInt(Scanner t, String opcion) {
@@ -115,11 +143,13 @@ public class EmpleadoController {
         // * Introducimos valor negativos o 0
         System.out.println("Introduce el "+opcion);
         int valor = t.nextInt(); //No va a salir del escaneo hasta teclear un número entero
+
         while(valor <= 0){
             System.out.println("No puedes introducir un salario negativo o 0");
             valor = t.nextInt();
-        }
-        System.out.println("Salario correcto");
+        }// fin while
+
+        System.out.println("Fecha correcto");
         return valor;
     }
 
@@ -129,10 +159,12 @@ public class EmpleadoController {
         // * Si es un campo vacío
         System.out.println("Introduce el "+opcion);
         String valor = t.nextLine();
+
         while(valor.isEmpty()){
             System.out.println("Vuelve a introducirlo");
             valor = t.nextLine();
-        }
+        }// fin while
+
         //Darle el formato, la primera letra en Mayúscula y el resto minúscula
         valor = valor.substring(0,1).toUpperCase().trim()+valor.substring(1).toLowerCase().trim();
         opcion = opcion.substring(0,1).toUpperCase().trim()+opcion.substring(1).toLowerCase().trim();
