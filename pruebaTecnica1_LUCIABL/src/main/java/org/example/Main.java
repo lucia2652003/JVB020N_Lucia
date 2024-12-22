@@ -14,13 +14,13 @@ public class Main {
         Scanner t = new Scanner(System.in);//Interactuar en el programa
 
         int eleccion = 0;
-        /*System.out.println("Bienvenido. Por favor introduzca el móvil");
-        String nombre = t.nextLine();
-        System.out.println("Hola "+nombre+", vamos a realizar la gestión de empleados");*/
+        System.out.println("Bienvenido. Por favor introduzca el móvil");
+        String nb = t.nextLine();
+        System.out.println("Hola "+nb+", vamos a realizar la gestión de empleados");
 
 
         while(!(eleccion == -1)){ //Mientras que no se cumpla la condición
-            System.out.println("Elija una opción: " +
+            System.out.println("Elija una de estas opciones: " +
                     "\n 1. Agregar empleado" +
                     "\n 2. Listar empleados "+
                     "\n 3. Actualizar empleado"+
@@ -53,23 +53,11 @@ public class Main {
                     break;
                 case 3:
                     //Actualización de un empleado
-                    Empleado buscar =controller.gestionEmpleado(t,"actualizar");
-                    if(buscar == null){ //No encontró el empleado en DB
-                        System.out.println("Ese empleado no existe en BD");
-                    }else{
-                        controller.actualizarEmpleado(t,buscar);
-                        //System.out.println("El empleado "+buscar.getId() +" ha sido actualizado");
-                    }
+                    controller.gestionEmpleado(t,"actualizar");
                     break;
                 case 4:
                     //Eliminación de empleado
-                    Empleado emp = controller.gestionEmpleado(t,"eliminar");
-                    if(emp == null){ //No encontró el empleado en DB
-                        System.out.println("Ese empleado no existe en BD");
-                    }else{
-                        controller.eliminarEmpleado(emp.getId());
-                        System.out.println("El empleado "+emp.getId() +" ha sido eliminado");
-                    }
+                    controller.gestionEmpleado(t,"eliminar");
                     break;
                 case 5:
                     //Buscar a los empleados por cargo
@@ -93,6 +81,8 @@ public class Main {
             }// fin switch
 
         }// fin do...while
+
+        System.out.println("Muchas gracias. Que tengas un bien día "+nb);
 
     }
 }

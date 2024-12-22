@@ -52,15 +52,15 @@ public class EmpleadoJPA {
         try{
             em.getTransaction().begin();
             Empleado encontrado = em.find(Empleado.class,idBuscar);
-            if(encontrado != null){ //Si existe ese usuario
+            if(encontrado != null){ //Sí existe ese usuario
                 em.remove(encontrado);
-                System.out.println("Empleado con el id "+encontrado.getId()+" ha si elimado");
+                System.out.println("Empleado con el id "+encontrado.getId()+" ha si eliminado");
             }else{
                 System.out.println("No existe ese empleado");
             }
             em.getTransaction().commit();
         }finally{
-            em.close();
+            ConfigJPA.close();
         }// fin finally
     }
 
@@ -80,6 +80,7 @@ public class EmpleadoJPA {
             em.getTransaction().begin();
             em.merge(encontrado); //Actualizar empleado de DB
             em.getTransaction().commit();
+            System.out.println("Empleado con el id "+encontrado.getId()+" ha si modificado");
         }finally{
             em.close();
         }// fin finally

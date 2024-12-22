@@ -31,11 +31,16 @@ public class EmpleadoController {
         return empJPA.find(id);
     }
 
-    //Tanto en actualización como en eliminación necesitan el ID para buscar el usuario
-    public Empleado gestionEmpleado(Scanner t, String opcion) {
-        System.out.println("Introduce un id de un empleado para "+opcion);
-        int id = t.nextInt();
-        return bucarEmpleado(id);
+    //Tanto en actualización como eliminación necesitan el ID para buscar el usuario
+    public void gestionEmpleado(Scanner t, String opcion) {
+        System.out.println("Inserta el id del empleado que quieres buscar para "+opcion);
+        int idBuscar = t.nextInt();
+        if(opcion.equals("actualizar")){ //Actualiza el usuario
+            Empleado encontrado = empJPA.find(idBuscar);
+            actualizarEmpleado(t,encontrado);
+        }else{// Elimina el usuario
+            eliminarEmpleado(idBuscar);
+        }
     }
 
     //Elegir una de las opciones para actualizar al empleado
@@ -125,6 +130,7 @@ public class EmpleadoController {
     }
 
     public String validationTexto(Scanner t, String opcion) {
+        t.nextLine();
         //Mientras se un dato inválido
         // * Si es un campo vacío
         System.out.println("Introduce el "+opcion);
