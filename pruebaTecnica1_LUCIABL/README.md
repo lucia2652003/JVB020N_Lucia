@@ -12,8 +12,74 @@ para realizar diferentes funciones.
     BD '**SCHEMAS**'. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
   4. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien 
         * pon.xml: Debe terner las librerías externas de Hibernate
-             
-        * META-INF/persistence.xml:
+             ```
+               <!--Instalar las librerías externas para la conexión de una DB-->
+                  <dependencies>
+                    <!--  JPA (Hibernate)  -->
+                    <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-core</artifactId>
+                        <version>6.2.7.Final</version>
+                    </dependency>
+                    <!--  JPA API  -->
+                    <dependency>
+                       <groupId>jakarta.persistence</groupId>
+                       <artifactId>jakarta.persistence-api</artifactId>
+                       <version>3.1.0</version>
+                    </dependency>
+                   <!-- Conector mysql workbench 8.0.33 -->
+                   <dependency>
+                       <groupId>mysql</groupId>
+                       <artifactId>mysql-connector-java</artifactId>
+                       <version>8.0.33</version>
+                   </dependency>
+                  </dependencies>
+             ```
+        * /main/resources/META-INF/persistence.xml: Comprobar la base de datos, el user y el password
+             ```
+              <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+               <persistence-unit name="gt_empleados"> <!--Ojo con este elemento-->
+                 <class>com.ejemplo.Empleado</class>
+                 <properties>
+                    <!--  Configuración de la base de datos  -->
+                    <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+                    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/empleados?serverTimezone=UTC"/>
+                    <property name="javax.persistence.jdbc.user" value="root"/>
+                    <property name="javax.persistence.jdbc.password" value=""/>
+                    <!--  Mostrar sentencias SQL  -->
+                    <property name="hibernate.show_sql" value="true"/>
+                    <property name="hibernate.format_sql" value="true"/>
+                    <!--  Crear las tablas automáticamente  -->
+                    <property name="hibernate.hbm2ddl.auto" value="update"/>
+                 </properties>
+               </persistence-unit>
+              </persistence>
+             ```
+        * /main/java/org/example/persistence/ConfigJPA:
+            ```
+              package org.example.persistence;
+
+              import jakarta.persistence.EntityManager;
+              import jakarta.persistence.EntityManagerFactory;
+              import jakarta.persistence.Persistence;
+
+              public class ConfigJPA {
+
+                //Para establecer la conexión con la DB
+                private static final EntityManagerFactory emf =
+                                     Persistence.createEntityManagerFactory("gt_empleados");
+
+                public static EntityManager getEntityManager() {
+                        return emf.createEntityManager();
+                }
+
+                public static void close(){//Cerrar la sentencia
+                         emf.close();
+                }
+
+              }
+            ```
+        * 
 
 ## Estructura de JPA
  En el proyecto lo dividimos en tres directorios específicos para mejor organización. 

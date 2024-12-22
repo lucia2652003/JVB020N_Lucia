@@ -14,9 +14,8 @@ public class ConfigJPA {
         return emf.createEntityManager();
     }
 
-    public static void close(){
+    public static void close(){//Cerrar la sentencia
         emf.close();
     }
-
 
 }
