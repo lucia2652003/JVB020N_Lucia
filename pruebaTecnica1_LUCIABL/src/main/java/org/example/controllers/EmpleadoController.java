@@ -57,14 +57,17 @@ public class EmpleadoController {
             opcion = t.nextInt();
             switch(opcion){
                case 1:
+                   t.nextLine();//Evita el salto de linea
                    String nombre = validationTexto(t,"nombre");
                    buscar.setName(nombre); //Parámetro modificado
                 break;
               case 2:
+                  t.nextLine();
                   String apellido = validationTexto(t,"apellido");
                   buscar.setSurname(apellido);
                 break;
               case 3:
+                  t.nextLine();
                   String cargo = validationTexto(t,"cargo");
                   buscar.setJob(cargo);
                 break;
@@ -81,7 +84,8 @@ public class EmpleadoController {
                  break;
             }// fin switch
 
-        }while(opcion < 1 || opcion > 5);
+        }while(opcion < 1 || opcion > 5);// fin do...while
+
         System.out.println(buscar);
         empJPA.update(buscar);//Actualizar empleado
     }

@@ -32,7 +32,7 @@ public class Main {
                 case 1:
                     System.out.println("Agregar un empleado");
                     //Validación de datos
-                    t.nextLine();
+                    t.nextLine();//Evita el salto
                     String nombre = controller.validationTexto(t,"nombre");
                     String apellido = controller.validationTexto(t,"apellido");
                     String cargo = controller.validationTexto(t,"cargo");
@@ -48,7 +48,7 @@ public class Main {
                     System.out.println("Lista de los empleados: ");
                     for(Empleado empleado : listaEmpleado){
                         System.out.println(empleado);
-                    }
+                    }// fin for
                     System.out.println();
                     break;
                 case 3:
@@ -71,7 +71,7 @@ public class Main {
                         System.out.println("Empleados del cargo "+trabajo+": ");
                         for(Empleado empleado : listaCargo){
                             System.out.println(empleado.toStringJob());
-                        }
+                        }// fin for
                     }
                     System.out.println();
                     break;
