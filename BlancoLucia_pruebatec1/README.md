@@ -104,7 +104,7 @@ de objetos en base de datos relacionales.
 ## ¿Cómo ejecutar?
    Una vez conectado las conexiones a la base de datos y comprobado los parámetros debemos encender la aplicación,
    para eso debemos dirigirnos al Main y ejecutar poniendo en el panel derecho una lista desplegable y poner
-   'Current File' y el lado la flecha. Al principio como todo programa nos pide introducir el nombre explicará
+   'Current File' y pinchar la flecha derecha. Al principio como todo programa nos pide introducir el nombre explicará
    la gestión de empleados bajo las diferentes opciones que ofrece.
      
    
