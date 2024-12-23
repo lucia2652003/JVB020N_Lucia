@@ -31,8 +31,8 @@ public class Main {
             switch (eleccion){
                 case 1:
                     System.out.println("Agregar un empleado");
-                    t.nextLine();//Evita el salto
                     //Validación de datos
+                    t.nextLine();
                     String nombre = controller.validationTexto(t,"nombre");
                     String apellido = controller.validationTexto(t,"apellido");
                     String cargo = controller.validationTexto(t,"cargo");

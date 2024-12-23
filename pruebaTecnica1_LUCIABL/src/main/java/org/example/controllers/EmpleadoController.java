@@ -130,7 +130,6 @@ public class EmpleadoController {
     }
 
     public String validationTexto(Scanner t, String opcion) {
-        t.nextLine();
         //Mientras se un dato inválido
         // * Si es un campo vacío
         System.out.println("Introduce el "+opcion);
