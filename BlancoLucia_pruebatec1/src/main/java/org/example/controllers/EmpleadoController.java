@@ -82,7 +82,7 @@ public class EmpleadoController {
                   buscar.setStart_date(fecha);
                   break;
               default:
-                 System.out.println("Lo siento pero no existe ese valor");
+                 System.out.println("Lo siento pero no existe ese valor. Debes introducir valores (1 a 5)");
                  break;
             }// fin switch
 
