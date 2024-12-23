@@ -33,7 +33,7 @@ public class EmpleadoController {
 
     //Tanto en actualización como eliminación necesitan el ID para buscar el usuario
     public void gestionEmpleado(Scanner t, String opcion) {
-        System.out.println("Inserta el id del empleado que quieres buscar para "+opcion);
+        System.out.println("Inserta el id del empleado para "+opcion);
         int idBuscar = t.nextInt();
         if(opcion.equals("actualizar")){ //Actualiza el usuario
             Empleado encontrado = bucarEmpleado(idBuscar);
@@ -45,6 +45,8 @@ public class EmpleadoController {
 
     //Elegir una de las opciones para actualizar al empleado
     public void actualizarEmpleado(Scanner t, Empleado buscar) {
+        //Mostrar el empleado antes, para ver los datos
+        System.out.println("Mostrar: \n"+buscar);
 
         int opcion;
         do{
@@ -76,7 +78,7 @@ public class EmpleadoController {
                   buscar.setMiWage(salario);
                   break;
               case 5:
-                  LocalDate fecha = validationFechaInicio(t,"fecha de incio");
+                  LocalDate fecha = validationFechaInicio(t,"fecha de inicio");
                   buscar.setStart_date(fecha);
                   break;
               default:
@@ -86,7 +88,6 @@ public class EmpleadoController {
 
         }while(opcion < 1 || opcion > 5);// fin do...while
 
-        System.out.println(buscar);
         empJPA.update(buscar);//Actualizar empleado
     }
 
@@ -95,16 +96,10 @@ public class EmpleadoController {
         // * El año debe ser mayor a 0 y menor que el año actual
         // * El mes 1 - 12
         // * El día 1 - 31
-        System.out.println("Introduce la "+fechaDeIncio+" siguiendo los parámetros: " +
-                "\n Introduce el año YYYY que sea menor "+LocalDate.now().getYear());
-        int ano = t.nextInt();
-        System.out.println("Introduce el mes MM o M 01-12");
-        int mes = t.nextInt();
-        System.out.println("Introduce el dia DD o D 01-31");
-        int dia = t.nextInt();
+        int ano = 0, mes = 0, dia = 0;
 
         while ((ano <= 0 || ano > LocalDate.now().getYear()) || (mes < 1 || mes > 12) || (dia < 1 || dia > 31)) {
-            System.out.println("Los parámetros no son los correctos. Vuelve a introducirlos " +
+            System.out.println("Introduce la "+fechaDeIncio+" siguiendo los parámetros: " +
                         "\n Año -> YYYY 0001 hasta " + LocalDate.now().getYear());
             ano = t.nextInt();
             System.out.println("Mes -> MM o M 01-12");
@@ -120,7 +115,7 @@ public class EmpleadoController {
 
     public Integer validationSalario(Scanner t, String opcion) {
         //Mientras se un dato inválido
-        // * Introducimos valor negativos o 0
+        // * Introducimos valor negativo o 0
         System.out.println("Introduce el "+opcion);
         int valor = t.nextInt(); //No va a salir del escaneo hasta teclear un número entero
 
@@ -136,13 +131,12 @@ public class EmpleadoController {
     public String validationTexto(Scanner t, String opcion) {
         //Mientras se un dato inválido
         // * Si es un campo vacío
-        System.out.println("Introduce el "+opcion);
-        String valor = t.nextLine();
+        String valor;
 
-        while(valor.isEmpty()){
-            System.out.println("Vuelve a introducirlo");
+        do { //Si no está vacío se detiene el ciclo
+            System.out.println("Debes introducir un " + opcion);
             valor = t.nextLine();
-        }// fin while
+        }while(valor.isEmpty());// fin do...while
 
         //Darle el formato, la primera letra en Mayúscula y el resto minúscula
         valor = valor.substring(0,1).toUpperCase().trim()+valor.substring(1).toLowerCase().trim();

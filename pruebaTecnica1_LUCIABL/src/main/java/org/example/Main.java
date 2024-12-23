@@ -14,10 +14,9 @@ public class Main {
         Scanner t = new Scanner(System.in);//Interactuar en el programa
 
         int eleccion = 0;
-        System.out.println("Bienvenido. Por favor introduzca el móvil");
+        System.out.println("Bienvenido. Por favor introduce tu nombre");
         String nb = t.nextLine();
         System.out.println("Hola "+nb+", vamos a realizar la gestión de empleados");
-
 
         while(!(eleccion == -1)){ //Mientras que no se cumpla la condición
             System.out.println("Elija una de estas opciones: " +
@@ -37,16 +36,16 @@ public class Main {
                     String apellido = controller.validationTexto(t,"apellido");
                     String cargo = controller.validationTexto(t,"cargo");
                     int salario = controller.validationSalario(t, "salario");
-                    LocalDate fecha = controller.validationFechaInicio(t, "fecha de incio");
+                    LocalDate fecha = controller.validationFechaInicio(t, "fecha de inicio");
 
-                    //Creación de datos
+                    //Creación de empleado
                     Empleado nuevo = new Empleado(null, nombre,apellido,cargo,salario,fecha);
                     controller.crearEmpleado(nuevo);
                     break;
                 case 2:
                     List<Empleado> listaEmpleado = controller.listarEmpleados();
                     System.out.println("Lista de los empleados: ");
-                    for(Empleado empleado : listaEmpleado){
+                    for (Empleado empleado : listaEmpleado) {
                         System.out.println(empleado);
                     }// fin for
                     System.out.println();
@@ -61,9 +60,8 @@ public class Main {
                     break;
                 case 5:
                     //Buscar a los empleados por cargo
-                    t.nextLine();//Para evitar el salto
-                    System.out.println("Introduce un cargo para buscar dichos empleados");
-                    String trabajo = t.nextLine();
+                    t.nextLine();
+                    String trabajo = controller.validationTexto(t,"trabajo");
                     List<Empleado> listaCargo = controller.buscarCargo(trabajo);
                     if(listaCargo.isEmpty()){
                         System.out.println("No hay un listado de ese cargo");
@@ -74,6 +72,8 @@ public class Main {
                         }// fin for
                     }
                     System.out.println();
+                    break;
+                case -1://Para detener el programa y evitar el default
                     break;
                 default:
                     System.out.println("Debes introducir valores (1 a 5). Introduzca de nuevo");
