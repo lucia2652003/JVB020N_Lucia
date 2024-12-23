@@ -3,7 +3,6 @@ package org.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity(name = "empleado")
 public class Empleado {
@@ -14,19 +13,19 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Como si fuera un AUTO_INCREMENT
     private Integer id;
 
-    @Column
+    @Column(nullable = false)//No es un valor nulo
     private String name; //Nombre
 
-    @Column
+    @Column(nullable = false)
     private String surname; //Apellido
 
-    @Column
+    @Column(nullable = false)
     private String job;//Trabajo
 
-    @Column(name = "wage")
+    @Column(name = "wage", nullable = false)
     private Integer miWage;//Salario
 
-    @Column
+    @Column(nullable = false)
     private LocalDate start_date; //Fecha que empezó a trabajar
 
     //Constructores

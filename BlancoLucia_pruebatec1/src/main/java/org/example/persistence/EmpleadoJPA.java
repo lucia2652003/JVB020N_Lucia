@@ -8,7 +8,6 @@ import java.util.List;
 
 public class EmpleadoJPA {
 
-
     public void create(Empleado emp) {
         EntityManager em = ConfigJPA.getEntityManager();
         try{
