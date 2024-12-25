@@ -8,6 +8,7 @@ import java.util.List;
 
 public class EmpleadoJPA {
 
+    //Inserción de empleado de DB
     public void create(Empleado emp) {
         EntityManager em = ConfigJPA.getEntityManager();
         try{
@@ -21,10 +22,11 @@ public class EmpleadoJPA {
                 System.out.println("Empleado ingresado");
             }
         }finally{
-            em.close();
+            em.close();//Cerrar la consulta
         }// fin finally
     }
 
+    //Buscar todos los empleados
     public List<Empleado> findAll() {
         EntityManager em = ConfigJPA.getEntityManager();
         try{
@@ -35,6 +37,7 @@ public class EmpleadoJPA {
         }// fin finally
     }
 
+    //Mostrar empleados por trabajo
     public List<Empleado> findJob(String job) {
         EntityManager em = ConfigJPA.getEntityManager();
         try{
@@ -46,6 +49,18 @@ public class EmpleadoJPA {
         }// fin finally
     }
 
+    //Mostrar los trabajos disponibles
+    public List<String> findAllJob() {
+        EntityManager em = ConfigJPA.getEntityManager();
+        try{
+            TypedQuery<String> tq = em.createQuery("SELECT DISTINCT p.job FROM empleado p",String.class);
+            return tq.getResultList();
+        }finally{
+            em.close();
+        }// fin finally
+    }
+
+    //Comprobar si existe dicho empleado para eliminarlo de DB
     public void delete(Integer idBuscar) {
         EntityManager em = ConfigJPA.getEntityManager();
         try{
@@ -73,6 +88,7 @@ public class EmpleadoJPA {
         }// fin finally
     }
 
+    //Actualizar el empleado de la DB
     public void update(Empleado encontrado) {
         EntityManager em = ConfigJPA.getEntityManager();
         try{

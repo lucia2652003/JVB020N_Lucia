@@ -19,7 +19,14 @@ public class EmpleadoController {
         return empJPA.findAll();
     }
 
-    public List<Empleado> buscarCargo(String job) {
+    public List<Empleado> buscarCargo(Scanner t) {
+       t.nextLine();//Evita el salto
+       List<String> todosCargos = empJPA.findAllJob();
+       System.out.println("--- Mostrar cargos disponibles ---");
+       for(String cargo: todosCargos){// Para que el usuario sepa los cargos que existen.
+           System.out.println("*"+ cargo);
+       }// fin for
+       String job = validationTexto(t, "cargo");
        return empJPA.findJob(job);
     }
 
@@ -60,7 +67,7 @@ public class EmpleadoController {
                 "\n 2. Apellido "+
                 "\n 3. Trabajo"+
                 "\n 4. Salario "+
-                "\n 5. Fecha de inicio " );
+                "\n 5. Fecha de inicio ");
             opcion = t.nextInt();
             switch(opcion){
                case 1:
@@ -75,7 +82,7 @@ public class EmpleadoController {
                 break;
               case 3:
                   t.nextLine();
-                  String cargo = validationTexto(t,"cargo");
+                  String cargo = validationTexto(t,"trabajo que ocupa");
                   buscar.setJob(cargo);
                 break;
               case 4:
@@ -104,7 +111,7 @@ public class EmpleadoController {
         int ano = 0, mes = 0, dia = 0;
 
         while ((ano <= 0 || ano > LocalDate.now().getYear()) || (mes < 1 || mes > 12) || (dia < 1 || dia > 31)) {
-            System.out.println("Introduce la "+fechaDeIncio+" siguiendo los parámetros: " +
+            System.out.println("Introduce la "+fechaDeIncio+" correctamente siguiendo los parámetros: " +
                         "\n Año -> YYYY 0001 hasta " + LocalDate.now().getYear());
             ano = t.nextInt();
             System.out.println("Mes -> MM o M 01-12");

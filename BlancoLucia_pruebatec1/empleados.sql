@@ -25,5 +25,5 @@ VALUES
 ('Iago', "Lopéz", "Contabilidad", 7000, "1645-05-23"),
 ('Lola', "Grandes", "Contabilidad", 1500, "2004-10-10"),
 ('Marcos', "Moutos", "Programación", 5520, "2001-03-14"),
-('Fiona', "Lama", "Contabilidad", 1500, "2002-09-27"),
+('Fiona', "Lama", "Contabilidad", 1000, "2002-09-27"),
 ('Luis', "Maneiro", "Informática", 1250, "2000-04-22");

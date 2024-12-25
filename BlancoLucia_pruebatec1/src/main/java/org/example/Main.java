@@ -34,7 +34,7 @@ public class Main {
                     t.nextLine();//Evita el salto
                     String nombre = controller.validationTexto(t,"nombre");
                     String apellido = controller.validationTexto(t,"apellido");
-                    String cargo = controller.validationTexto(t,"cargo");
+                    String cargo = controller.validationTexto(t,"cargo que trabaja");
                     int salario = controller.validationSalario(t, "salario");
                     LocalDate fecha = controller.validationFechaInicio(t, "fecha de inicio");
 
@@ -44,7 +44,7 @@ public class Main {
                     break;
                 case 2:
                     List<Empleado> listaEmpleado = controller.listarEmpleados();
-                    System.out.println("Lista de los empleados: ");
+                    System.out.println("---- Lista de empleados --- ");
                     for (Empleado empleado : listaEmpleado) {
                         System.out.println(empleado);
                     }// fin for
@@ -52,7 +52,7 @@ public class Main {
                     break;
                 case 3:
                     //Actualización de un empleado
-                    controller.gestionEmpleado(t,"actualizar");
+                    controller.gestionEmpleado(t,"actualizar");//No modifiqués el String segundo parámetro
                     break;
                 case 4:
                     //Eliminación de empleado
@@ -60,20 +60,18 @@ public class Main {
                     break;
                 case 5:
                     //Buscar a los empleados por cargo
-                    t.nextLine();
-                    String trabajo = controller.validationTexto(t,"trabajo");
-                    List<Empleado> listaCargo = controller.buscarCargo(trabajo);
-                    if(listaCargo.isEmpty()){
+                    List<Empleado> listaCargo = controller.buscarCargo(t);
+                    if(listaCargo.isEmpty()){ //Porque el cargo no está en DB
                         System.out.println("No hay un listado de ese cargo");
                     }else{
-                        System.out.println("Empleados del cargo "+trabajo+": ");
+                        System.out.println("---- Lista de empleados de "+listaCargo.get(0).getJob()+"---");
                         for(Empleado empleado : listaCargo){
                             System.out.println(empleado.toStringJob());
                         }// fin for
                     }
                     System.out.println();
                     break;
-                case -1://Para detener el programa y evitar el default
+                case -1://Para evitar el default
                     break;
                 default:
                     System.out.println("Debes introducir valores (1 a 5). Introduzca de nuevo");
@@ -82,7 +80,8 @@ public class Main {
 
         }// fin while
 
-        System.out.println("Muchas gracias. Que tengas un bien día "+nb);
+        System.out.println("Muchas gracias. Que tengas un buen día "+nb);
+        t.close();//Cerrar el escaneo
 
     }
 }
