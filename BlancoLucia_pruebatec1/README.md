@@ -12,11 +12,11 @@ de objetos en base de datos relacionales.
         cd Desktop
         git clone https://github.com/lucia2652003/JVB020N_Lucia.git
       ```
-  2. **Abrir proyecto**: Abrimos Intellij IDEA y comprobar si tenemos el JDK 17,
+  2. **Abrir proyecto**: Abrimos Intellij IDEA [https://www.youtube.com/watch?v=eicDTFhVXxs]  y comprobar si tenemos el JDK 17,
      para hacerlo funcionar (si no tienes ninguno de los dos instálalo).
      Una vez hecho abrimos el proyecto Maven donde está la aplicación, 
      así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
-  3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar').
+  3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar') y Admin.
   4. **Workbench**: Enciéndelo y crear la conexión. 
   5. **DB (Base de datos)***: Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
     Una vez hecho lo ejecutas pinchando en el icono del primer rayo :zap: que veas. Refresca
@@ -49,7 +49,7 @@ de objetos en base de datos relacionales.
                 </dependency>
                </dependencies>
           ```
-     * **/main/resources/META-INF/persistence.xml**: Comprobar la base de datos, el user, el password y el persistence-unit
+     * **/main/resources/META-INF/persistence.xml**: Comprobar la base de datos, el user, la dirección IP, el puerto (3306 por defecto), el password y el persistence-unit
       porque con él podemos realizar la JPA (Java Persistence API).
           ```
            <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
