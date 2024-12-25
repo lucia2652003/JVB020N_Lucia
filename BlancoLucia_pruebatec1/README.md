@@ -53,7 +53,7 @@ de objetos en base de datos relacionales.
           ('Fiona', "Lama", "Contabilidad", 1000, "2002-09-27"),
           ('Luis', "Maneiro", "Informática", 1250, "2000-04-22");
      ```
-  6. **Tabla empleado**:Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleado'.
+  6. **Tabla empleado**: Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleado'.
   7. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
      * **pom.xml**: Debe tener las librerías externas de Hibernate. Te mostrará el icono de Maven para refrescar
       en la parte derecha arriba del fichero para descargar las librerías. Una vez terminado, te muestra en la sección
@@ -81,7 +81,7 @@ de objetos en base de datos relacionales.
                 </dependency>
                </dependencies>
           ```
-     * **/main/resources/META-INF/persistence.xml**: Comprobar la base de datos, el user, la dirección IP, el puerto (3306 por defecto), el password y el persistence-unit
+     * **/src/main/resources/META-INF/persistence.xml**: Comprobar la base de datos, el user, la dirección IP, el puerto (3306 por defecto), el password y el persistence-unit
       porque con él podemos realizar la JPA (Java Persistence API).
           ```
            <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
