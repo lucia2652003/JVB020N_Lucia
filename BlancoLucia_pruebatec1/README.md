@@ -15,12 +15,44 @@ de objetos en base de datos relacionales.
   2. **Abrir proyecto**: Abrimos [Intellij IDEA](https://www.youtube.com/watch?v=eicDTFhVXxs) y comprobar si tenemos el JDK 17,
      para hacerlo funcionar (si no tienes ninguno de los dos instálalo).
      Una vez hecho abrimos el proyecto Maven donde está la aplicación, 
-     así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
+     así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1. No modifiquemos nunca el proyecto.
   3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar') y Admin.
-  4. **Workbench**: Enciéndelo y crear la conexión. 
+  4. **Workbench**: Enciéndelo y crea la conexión. 
+      * [Instalar Workbench](https://support.academicsoftware.eu/hc/es/articles/360007014958-C%C3%B3mo-instalar-MySQL-Workbench)
+      * [Conexión XAMPP con Workbech](https://www.youtube.com/watch?v=7ZD0D5m0jB0) 
   5. **DB (Base de datos)***: Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
     Una vez hecho lo ejecutas pinchando en el icono del primer rayo :zap: que veas. Refresca
     DB  que se encuentra en '**SCHEMAS**' pinchando en lado derecho :arrows_counterclockwise:. 
+     ``` 
+          --  Creación de la DB
+          CREATE DATABASE IF NOT EXISTS empleados;
+
+          --  Usando la DB
+          USE empleados;
+
+          --  Creación de la Tabla Empleado
+              CREATE TABLE IF NOT EXISTS empleado (
+                 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                 name VARCHAR(255) NOT NULL,
+                 surname VARCHAR(255) NOT NULL,
+                 job VARCHAR(255) NOT NULL,
+                 wage INT NOT NULL,
+                 start_date DATE NOT NULL);
+
+          --  Insertando datos en la Tabla Empleado
+          INSERT INTO empleado (name, surname, job, wage, start_date)
+          VALUES
+          ('Carlos', "Rivera", "Informático", 3500, "1999-05-12"),
+          ('Jose', "García", "Administrador", 2600, "2003-07-01"),
+          ('Brian', "Vázquez", "Informático", 5000, "2010-02-28"),
+          ('Paula', "Otero", "Contable", 6000, "1987-01-12"),
+          ('María', "Castro", "Jueza", 4800, "2024-11-23"),
+          ('Iago', "Lopéz", "Contable", 7000, "1645-05-23"),
+          ('Lola', "Grandes", "Contable", 1500, "2004-10-10"),
+          ('Marcos', "Moutos", "Programador", 5520, "2001-03-14"),
+          ('Fiona', "Lama", "Contable", 1500, "2002-09-27"),
+          ('Luis', "Maneiro", "Informático", 1250, "2000-04-22");
+     ```
   6. **Tabla empleado**:Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleado'.
   7. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
      * **pom.xml**: Debe tener las librerías externas de Hibernate. Te mostrará el icono de Maven para refrescar
@@ -98,13 +130,13 @@ de objetos en base de datos relacionales.
        
 ## Estructura de JPA
  En el proyecto lo dividimos en tres directorios específicos para mejor organización 
- y limpieza de código. 
- Se dividen en:
+ y limpieza de código, se encuentran en **/src/main/java/org.example**. 
+ Se dividen de esta manera:
    * controllers: Métodos que se realizan bajo las operaciones CRUD sobre la entidad Empleado.
-   * entities: Se encuentran la plantilla de Empleado donde tiene los datos de la tabla 
-     con sus especificaciones. Métodos para cambiar y mostrar variables. Especificar los parámetros
-     para realizar mejor el mapeo de DB.
-   * persistence: Configuración de la DB "ConfigJPA" y el mapeo para realizar las operaciones CRUD "EmpleadoJPA".
+   * entities: Se encuentran la plantilla de Empleado donde tiene los atributos de la tabla 
+     con su tipo de dato correspondiente. Métodos para cambiar y mostrar variables. Se especifica
+     anotaciones Hibernate '@'.
+   * persistence: Configuración de Hibernate DB "ConfigJPA" y el mapeo para realizar las operaciones CRUD "EmpleadoJPA".
    * Main: Fichero en donde interactuaremos todo el rato. Introduciendo datos mientras que la app 
      realizará la entrada y salida de datos, la validación de datos y las operaciones CRUD. 
 
@@ -112,7 +144,8 @@ de objetos en base de datos relacionales.
    Una vez conectado las conexiones a la base de datos y comprobado los parámetros debemos encender la aplicación,
    para eso debemos dirigirnos al Main y lo ejecutamos poniendo en el panel derecho superior una lista desplegable y poner
    'Current File' y pinchar la flecha :arrow_forward: que se encuentra al lado.  Al principio nos pide nuestro nombre por teclado y luego nos ofrece
-   diferentes opciones en las que debemos escoger tecleando un número, si no está en ese rango nos pide volver a introducirlo.
+   diferentes opciones en las que debemos escoger tecleando un número, si no está en ese rango nos pide volver a introducirlo, también en la 
+   entrada de datos cuando insertemos un empleado o lo actualicemos.
    Para detener el programs debemos pulsar -1.
      
    
