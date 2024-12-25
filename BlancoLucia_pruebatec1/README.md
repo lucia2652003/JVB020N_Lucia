@@ -12,13 +12,15 @@ de objetos en base de datos relacionales.
         cd Desktop
         git clone https://github.com/lucia2652003/JVB020N_Lucia.git
       ```
-  2. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar')
-  3. **Workbench**: Enciéndelo y crear la conexión. 
-  4. Coge el script **empleados.sql**, copia sus sintaxis y lo pegas en Workbench. 
+  2. **Abrir proyecto**: Abrimos Intellij IDEA (si no lo tienes instálalo). Necesario JDK 17 para hacerlo funcionar.
+     Una vez hecho abrimos el proyecto Maven donde está la aplicación, así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
+  3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar').
+  4. **Workbench**: Enciéndelo y crear la conexión. 
+  5. Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
     Una vez hecho lo ejecutas pinchando en el icono del primer rayo:zap: que veas. Refresca
-    BD '**SCHEMAS**'. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
-  5. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
-     * **pon.xml**: Debe tener las librerías externas de Hibernate.
+    DB '**SCHEMAS**':refresh:. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
+  6. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
+     * **pon.xml**: Debe tener las librerías externas de Hibernate. Te mostrará el icono de Maven para refrescar.
           ```
             <!--Instalar las librerías externas para la conexión de una DB-->
                <dependencies>
