@@ -12,15 +12,20 @@ de objetos en base de datos relacionales.
         cd Desktop
         git clone https://github.com/lucia2652003/JVB020N_Lucia.git
       ```
-  2. **Abrir proyecto**: Abrimos Intellij IDEA (si no lo tienes instálalo). Necesario JDK 17 para hacerlo funcionar.
-     Una vez hecho abrimos el proyecto Maven donde está la aplicación, así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
+  2. **Abrir proyecto**: Abrimos Intellij IDEA y comprobar si tenemos el JDK 17,
+     para hacerlo funcionar (si no tienes ninguno de los dos instálalo).
+     Una vez hecho abrimos el proyecto Maven donde está la aplicación, 
+     así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
   3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar').
   4. **Workbench**: Enciéndelo y crear la conexión. 
-  5. Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
+  5. **DB (Base de datos)***: Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
     Una vez hecho lo ejecutas pinchando en el icono del primer rayo :zap: que veas. Refresca
-    DB '**SCHEMAS**' :refresh:. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
-  6. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
-     * **pon.xml**: Debe tener las librerías externas de Hibernate. Te mostrará el icono de Maven para refrescar.
+    DB  que se encuentra en '**SCHEMAS**' pinchando en lado derecho :arrows_counterclockwise:. 
+  6. **Tabla empleado**:Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleado'.
+  7. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
+     * **pom.xml**: Debe tener las librerías externas de Hibernate. Te mostrará el icono de Maven para refrescar
+      en la parte derecha arriba del fichero para descargar las librerías. Una vez terminado, te muestra en la sección
+      **External Libraries**.
           ```
             <!--Instalar las librerías externas para la conexión de una DB-->
                <dependencies>
@@ -105,8 +110,9 @@ de objetos en base de datos relacionales.
 
 ## ¿Cómo ejecutar?
    Una vez conectado las conexiones a la base de datos y comprobado los parámetros debemos encender la aplicación,
-   para eso debemos dirigirnos al Main y ejecutar poniendo en el panel derecho una lista desplegable y poner
-   'Current File' y pinchar la flecha derecha. Al principio como todo programa nos pide introducir el nombre explicará
-   la gestión de empleados bajo las diferentes opciones que ofrece.
+   para eso debemos dirigirnos al Main y lo ejecutamos poniendo en el panel derecho superior una lista desplegable y poner
+   'Current File' y pinchar la flecha :arrow_forward: que se encuentra al lado.  Al principio nos pide nuestro nombre por teclado y luego nos ofrece
+   diferentes opciones en las que debemos escoger tecleando un número, si no está en ese rango nos pide volver a introducirlo.
+   Para detener el programs debemos pulsar -1.
      
    
