@@ -80,7 +80,7 @@ public class Main {
                     break;
             }// fin switch
 
-        }// fin do...while
+        }// fin while
 
         System.out.println("Muchas gracias. Que tengas un bien día "+nb);
 

@@ -42,16 +42,16 @@ de objetos en base de datos relacionales.
           --  Insertando datos en la Tabla Empleado
           INSERT INTO empleado (name, surname, job, wage, start_date)
           VALUES
-          ('Carlos', "Rivera", "Informático", 3500, "1999-05-12"),
-          ('Jose', "García", "Administrador", 2600, "2003-07-01"),
-          ('Brian', "Vázquez", "Informático", 5000, "2010-02-28"),
-          ('Paula', "Otero", "Contable", 6000, "1987-01-12"),
-          ('María', "Castro", "Jueza", 4800, "2024-11-23"),
-          ('Iago', "Lopéz", "Contable", 7000, "1645-05-23"),
-          ('Lola', "Grandes", "Contable", 1500, "2004-10-10"),
-          ('Marcos', "Moutos", "Programador", 5520, "2001-03-14"),
-          ('Fiona', "Lama", "Contable", 1500, "2002-09-27"),
-          ('Luis', "Maneiro", "Informático", 1250, "2000-04-22");
+          ('Carlos', "Rivera", "Informática", 3500, "1999-05-12"),
+          ('Jose', "García", "Administración", 2600, "2003-07-01"),
+          ('Brian', "Vázquez", "Informática", 5000, "2010-02-28"),
+          ('Paula', "Otero", "Contabilidad", 6000, "1987-01-12"),
+          ('María', "Castro", "Programación", 4800, "2024-11-23"),
+          ('Iago', "Lopéz", "Contabilidad", 7000, "1645-05-23"),
+          ('Lola', "Grandes", "Contabilidad", 1500, "2004-10-10"),
+          ('Marcos', "Moutos", "Programación", 5520, "2001-03-14"),
+          ('Fiona', "Lama", "Contabilidad", 1500, "2002-09-27"),
+          ('Luis', "Maneiro", "Informática", 1250, "2000-04-22");
      ```
   6. **Tabla empleado**:Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleado'.
   7. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.

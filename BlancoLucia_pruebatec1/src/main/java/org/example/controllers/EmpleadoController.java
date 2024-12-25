@@ -37,7 +37,12 @@ public class EmpleadoController {
         int idBuscar = t.nextInt();
         if(opcion.equals("actualizar")){ //Actualiza el usuario
             Empleado encontrado = bucarEmpleado(idBuscar);
-            actualizarEmpleado(t,encontrado);
+            if(encontrado == null){//No existe el empleado
+                System.out.println("Empleado con el id "+idBuscar+" no existe");
+            }else{//Actualización
+                System.out.println("Empleado encontrado");
+                actualizarEmpleado(t,encontrado);
+            }
         }else{// Elimina el usuario
             eliminarEmpleado(idBuscar);
         }
@@ -92,7 +97,7 @@ public class EmpleadoController {
     }
 
     public LocalDate validationFechaInicio(Scanner t, String fechaDeIncio) {
-        // Debemos comprobar el año YYYY, el mes MM y el día DD por separado
+        // Debemos comprobar la fecha por separado, el año YYYY, el mes MM y el día DD
         // * El año debe ser mayor a 0 y menor que el año actual
         // * El mes 1 - 12
         // * El día 1 - 31
@@ -114,7 +119,7 @@ public class EmpleadoController {
     }
 
     public Integer validationSalario(Scanner t, String opcion) {
-        //Mientras se un dato inválido
+        //Salario inválido
         // * Introducimos valor negativo o 0
         System.out.println("Introduce el "+opcion);
         int valor = t.nextInt(); //No va a salir del escaneo hasta teclear un número entero
@@ -129,7 +134,7 @@ public class EmpleadoController {
     }
 
     public String validationTexto(Scanner t, String opcion) {
-        //Mientras se un dato inválido
+        //String inválido
         // * Si es un campo vacío
         String valor;
 
@@ -138,7 +143,7 @@ public class EmpleadoController {
             valor = t.nextLine();
         }while(valor.isEmpty());// fin do...while
 
-        //Darle el formato, la primera letra en Mayúscula y el resto minúscula
+        //Darle el formato, la primera letra en Mayúscula y el resto minúscula, también quitar los espacios en blanco
         valor = valor.substring(0,1).toUpperCase().trim()+valor.substring(1).toLowerCase().trim();
         opcion = opcion.substring(0,1).toUpperCase().trim()+opcion.substring(1).toLowerCase().trim();
         System.out.println(opcion+" válido");
