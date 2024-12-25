@@ -12,7 +12,7 @@ de objetos en base de datos relacionales.
         cd Desktop
         git clone https://github.com/lucia2652003/JVB020N_Lucia.git
       ```
-  2. **Abrir proyecto**: Abrimos Intellij IDEA [https://www.youtube.com/watch?v=eicDTFhVXxs]  y comprobar si tenemos el JDK 17,
+  2. **Abrir proyecto**: Abrimos [Intellij IDEA] (https://www.youtube.com/watch?v=eicDTFhVXxs) y comprobar si tenemos el JDK 17,
      para hacerlo funcionar (si no tienes ninguno de los dos instálalo).
      Una vez hecho abrimos el proyecto Maven donde está la aplicación, 
      así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
