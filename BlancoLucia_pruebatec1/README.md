@@ -17,8 +17,8 @@ de objetos en base de datos relacionales.
   3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar').
   4. **Workbench**: Enciéndelo y crear la conexión. 
   5. Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
-    Una vez hecho lo ejecutas pinchando en el icono del primer rayo:zap: que veas. Refresca
-    DB '**SCHEMAS**':refresh:. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
+    Una vez hecho lo ejecutas pinchando en el icono del primer rayo :zap: que veas. Refresca
+    DB '**SCHEMAS**' :refresh:. Crear otro script SQL y comprueba con la consulta 'SELECT * FROM empleados'.
   6. Comprobar los archivos de configuración. Debemos ver si los parámetros están bien.
      * **pon.xml**: Debe tener las librerías externas de Hibernate. Te mostrará el icono de Maven para refrescar.
           ```
