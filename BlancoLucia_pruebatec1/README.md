@@ -15,12 +15,12 @@ de objetos en base de datos relacionales.
   2. **Abrir proyecto**: Abrimos [Intellij IDEA](https://www.youtube.com/watch?v=eicDTFhVXxs) y comprobar si tenemos el JDK 17,
      para hacerlo funcionar (si no tienes ninguno de los dos instálalo).
      Una vez hecho abrimos el proyecto Maven donde está la aplicación, 
-     así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1. No modifiquemos nunca el proyecto.
+     así que ve a File > Open (Ctrl + O) > BlancoLucia_pruebatec1.
   3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar') y Admin.
   4. **Workbench**: Enciéndelo y crea la conexión. 
       * [Instalar Workbench](https://support.academicsoftware.eu/hc/es/articles/360007014958-C%C3%B3mo-instalar-MySQL-Workbench)
       * [Conexión XAMPP con Workbech](https://www.youtube.com/watch?v=7ZD0D5m0jB0) 
-  5. **DB (Base de datos)***: Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
+  5. **DB (Base de datos)**: Coge el script **empleados.sql**, copia su sintaxis y lo pegas en Workbench. 
     Una vez hecho lo ejecutas pinchando en el icono del primer rayo :zap: que veas. Refresca
     DB  que se encuentra en '**SCHEMAS**' pinchando en lado derecho :arrows_counterclockwise:. 
      ``` 
@@ -102,7 +102,7 @@ de objetos en base de datos relacionales.
             </persistence-unit>
            </persistence>
           ```
-     * **/main/java/org/example/persistence/ConfigJPA**: Para establecer la conexión a la DB empleados, debe coincidir con el
+     * **/src/main/java/org/example/persistence/ConfigJPA**: Para establecer la conexión a la DB empleados, debe coincidir con el
       persistence-unit. **¡¡No lo cambies !!**
          ```
            package org.example.persistence;
