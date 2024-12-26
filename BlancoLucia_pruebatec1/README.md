@@ -15,7 +15,7 @@ de objetos en base de datos relacionales.
   2. **Abrir proyecto**: Abrimos [Intellij IDEA](https://www.youtube.com/watch?v=eicDTFhVXxs) y comprobar si tenemos el JDK 17,
      para hacerlo funcionar (si no tienes ninguno de los dos instálalo).
      Una vez hecho abrimos el proyecto Maven donde está la aplicación, 
-     así que ve a File > Open (Ctrl + O) > C:\Users\...\Desktop\JVB020N_Lucia\BlancoLucia_pruebatec1.
+     así que ve a File > Open (Ctrl + O) > C:\Users\nnnn\Desktop\JVB020N_Lucia\BlancoLucia_pruebatec1.
   3. **Encender el XAMPP**: Enciende MySQL y Apache (Start 'Empezar') y Admin.
   4. **Workbench**: Enciéndelo y crea la conexión. 
       * [Instalar Workbench](https://support.academicsoftware.eu/hc/es/articles/360007014958-C%C3%B3mo-instalar-MySQL-Workbench)
